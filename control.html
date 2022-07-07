@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title> 
+</head>
+<body class="body_control body">
+    <header class="header">
+        <div class="header_wrapper">
+            <h1 class="header_title title">ADCP Bowling</h1>
+            <figure class="print_button-wrapper">
+                <img class="print_button" src="./assets/print-Icon.svg" alt="impresora">
+            </figure>
+        </div>
+    </header>
+
+    <section class="mainRequirements">
+        <form action="" class="main_requirements-wrapper">
+            <label for="inputNumberPlayers">Número de Jugadores</label>
+            <input type="number" id="inputNumberPlayers">
+            <label for="inputNumberLines">Número de Lineas</label>
+            <select name="inputNumberLines" id="inputNumberLines">
+                <option value="4">4</option>
+                <option value="6">6</option>
+            </select>
+            <button class="mainRequirements_button" type="button">Generar Tabla</button>
+        </form>
+    </section>
+
+    <section class="mainTable"></section>
+
+    <template id="template_wrapper" class="template_wrapper">
+        <article class="players_data">
+            <div class="inputName_wrapper">
+                <label for="inputName">Nombre:</label>
+                <input type="text" id="inputName">
+            </div>
+            <div class="hdTrack_wrapper">
+                <div class="inputHD_wrapper">
+                    <label for="inputHD">HD:</label>
+                    <input type="number" id="inputHD">
+                </div>
+                <div class="inputTrack_wrapper">
+                    <label for="inputTrack">Pista:</label>
+                    <input type="number" id="inputTrack">
+                </div>
+            </div>
+            <div class="inputLines_wrapper">
+                <label for="inputLines">Lineas:</label>
+
+            </div>
+        </article>
+    </template>
+
+    <button class="button_calculate" type="button">Establecer Rank</button>
+    
+    <section class="rank_wrapper"></section>
+
+    <script src="./index.js" type="module"></script>
+</body>
+</html>
