@@ -11,9 +11,14 @@
     <header class="header">
         <div class="header_wrapper">
             <h1 class="header_title title">ADCP Bowling</h1>
-            <figure class="print_button-wrapper">
-                <img class="print_button" src="./assets/print-Icon.svg" alt="impresora">
-            </figure>
+            <div class="header_panel-buttons">
+                <figure class="print_button-wrapper">
+                    <img class="print_button" src="./assets/print-Icon.svg" alt="impresora">
+                </figure>
+                <figure class="reload_button-wrapper">
+                    <img class="reload_button" src="./assets/reload.svg" alt="reload">
+                </figure>
+            </div>
         </div>
     </header>
 
@@ -35,16 +40,16 @@
     <template id="template_wrapper" class="template_wrapper">
         <article class="players_data">
             <div class="inputName_wrapper">
-                <label for="inputName">Nombre:</label>
+                <label for="">Nombre:</label>
                 <input type="text" id="inputName">
             </div>
             <div class="hdTrack_wrapper">
                 <div class="inputHD_wrapper">
-                    <label for="inputHD">HD:</label>
+                    <label for="">HD:</label>
                     <input type="number" id="inputHD">
                 </div>
                 <div class="inputTrack_wrapper">
-                    <label for="inputTrack">Pista:</label>
+                    <label for="">Pista:</label>
                     <input type="number" id="inputTrack">
                 </div>
             </div>
@@ -55,9 +60,32 @@
         </article>
     </template>
 
-    <button class="button_calculate" type="button">Establecer Rank</button>
+    <div class="panel_buttons-calculate">
+        <button class="button_cut">Corte +H</button>
+        <button class="button_calculate" type="button">Establecer Rank +H</button>
+        <button class="decoration"></button>
+        <button class="button_calculate-withoutH" type="button">Establecer Rank -H</button>
+        <button class="button_cut-withoutH">Corte -H</button>
+    </div>
+
     
     <section class="rank_wrapper"></section>
+    
+    <template class="template_rank-titles">
+        <div class="rank_wrapper-titles">
+            <h3 class="rank_wrapper-title-pos">Pos.</h3>
+            <h3 class="rank_wrapper-title-players">Jugadores</h3>
+            <h3 class="rank_wrapper-title-lines">Lineas</h3>
+            <h3 class="rank_wrapper-title-scrt">Scrt</h3>
+            <h3 class="rank_wrapper-title-hd">HD</h3>
+            <h3 class="rank_wrapper-title-serie">Serie</h3>
+            <h3 class="rank_wrapper-title-prom">Prom.</h3>
+        </div>
+    </template>
+
+    <figure class="up_button-wrapper hidden">
+        <img class="up_button" src="./assets/up.svg" alt="reload">
+    </figure>
 
     <script src="./index.js" type="module"></script>
 </body>
