@@ -10,6 +10,10 @@ export default function generateTable(mainRequirements_button){
             const $inputNumberLines = d.getElementById('inputNumberLines').value
             const $inputNumberPlayers = d.getElementById('inputNumberPlayers').value
             const $button_calculate = d.querySelector('.button_calculate')
+            const $button_calculateWithoutH = d.querySelector('.button_calculate-withoutH')
+            const $buttonCut = d.querySelector('.button_cut')
+            const $decoration = d.querySelector('.decoration')
+            const $buttonCutWithoutH = d.querySelector('.button_cut-withoutH')
             
             if (!(validarNumeroJugadores($inputNumberPlayers))){
                 return alert('El número de jugadores no puede ser menor a 1')
@@ -30,6 +34,10 @@ export default function generateTable(mainRequirements_button){
             lines($inputNumberLines, $inputNumberPlayers)
         
             $button_calculate.style.visibility = 'visible'
+            $button_calculateWithoutH.style.visibility = 'visible'
+            $buttonCut.style.visibility = 'visible'
+            $buttonCutWithoutH.style.visibility = 'visible'
+            $decoration.style.visibility = 'visible'
         }
     })
 }

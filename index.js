@@ -1,20 +1,39 @@
+import matchCut from './js/cut.js'
+import matchCutWithoutH from './js/cut_without_h.js'
 import generateTable from './js/generate_table.js'
 import printRank from './js/print_button.js'
 import rank from './js/rank_result.js'
+import rankWithoutH from './js/rank_result_without_h.js'
+import reloadPage from './js/reload_button.js'
 import soundEntry from './js/sound_entry.js'
+import scrollTopButton from './js/up_scroll_button.js'
 
 const d = document
 
 //Manipulación del DOM
+//Botones de calculo del rank
 const $button_calculate = d.querySelector('.button_calculate')
+const $button_calculateWithoutH = d.querySelector('.button_calculate-withoutH')
+const $buttonCut = d.querySelector('.button_cut')
+const $decoration = d.querySelector('.decoration')
+const $buttonCutWithoutH = d.querySelector('.button_cut-withoutH')
+$buttonCut.style.visibility = 'hidden'
 $button_calculate.style.visibility = 'hidden'
+$decoration.style.visibility = 'hidden'
+$button_calculateWithoutH.style.visibility = 'hidden'
+$buttonCutWithoutH.style.visibility = 'hidden'
 
-
+//Eventos activos al momento del load de la página
 d.addEventListener('DOMContentLoaded', (e) => {  
     soundEntry('./assets/bowling-strike.mp3','.main_container-button')  
     generateTable('.mainRequirements_button')
     rank('.button_calculate')
+    rankWithoutH('.button_calculate-withoutH')
     printRank('.print_button')
+    matchCut('.button_cut')
+    matchCutWithoutH('.button_cut-withoutH')
+    reloadPage('.reload_button')
+    scrollTopButton('.up_button-wrapper')
 })
 
 /* class Jugador{
