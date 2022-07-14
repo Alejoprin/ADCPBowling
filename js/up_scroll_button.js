@@ -16,7 +16,6 @@ export default function scrollTopButton(btnUp){
 
     d.addEventListener('click', e => {
         if(e.target.matches(btnUp) || e.target.matches(`${btnUp} *`)){ // la segunda expresión es para que la acción también sea tomada por la flecha cuando se le de click
-            console.log('gola')
             w.scrollTo({
                 behavior: 'smooth',
                 top: '0'
