@@ -9,6 +9,7 @@ import soundEntry from './js/sound_entry.js'
 import scrollTopButton from './js/up_scroll_button.js'
 
 const d = document
+const w = window
 
 //Manipulación del DOM
 //Botones de calculo del rank
@@ -27,14 +28,15 @@ $buttonCutWithoutH.style.visibility = 'hidden'
 d.addEventListener('DOMContentLoaded', (e) => {  
     soundEntry('./assets/bowling-strike.mp3','.main_container-button')  
     generateTable('.mainRequirements_button')
-    rank('.button_calculate')
-    rankWithoutH('.button_calculate-withoutH')
-    printRank('.print_button')
-    matchCut('.button_cut')
-    matchCutWithoutH('.button_cut-withoutH')
+    rank('.button_calculate', '(max-width: 840px)')
+    rankWithoutH('.button_calculate-withoutH', '(max-width: 840px)')
+    printRank('.print_button-wrapper')
+    matchCut('.button_cut', '(max-width: 840px)')
+    matchCutWithoutH('.button_cut-withoutH', '(max-width: 840px)')
     reloadPage('.reload_button')
     scrollTopButton('.up_button-wrapper')
 })
+
 
 /* class Jugador{
     constructor({nombre, hd, pista, lineas}){

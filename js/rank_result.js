@@ -1,5 +1,6 @@
-export default function rank(button_calculate) {
+export default function rank(button_calculate, mq) {
     const d = document
+    const w = window
     
     d.addEventListener('click', (e) => {
         if(e.target.matches(button_calculate)){
@@ -20,6 +21,9 @@ export default function rank(button_calculate) {
             const arrLinesPerPlayer = new Array(parseInt($inputNumberLines))
             const arrLinesTotal = new Array(parseInt($inputNumberPlayers))
             let aux = 0
+
+            //establecer el breakpoint para el cambio de posición de los titulos en el rank
+            let breakpoint = w.matchMedia(mq)
 
             //limpia el rank_wrapper
             $rankWrapper.innerHTML = ''
@@ -121,12 +125,21 @@ export default function rank(button_calculate) {
                 nodeLines.appendChild($fragment2)
 
                 //Dibujando cada jugador con todos sus datos de juego
-                node.innerHTML = `<span style='width: 34px'>${i+1}.º</span>
-                                <span style='width: 190px'>${arrPlayer[i].name}</span>
-                                <span style='width: 32px'>${arrPlayer[i].scrt}</span>
-                                <span style='width: 24px'>${arrPlayer[i].hdTotal}</span>
-                                <span style='width: 32px'>${arrPlayer[i].serie}</span>
-                                <span style='width: 43px'>${arrPlayer[i].promedio}</span>`
+                if(!breakpoint.matches){
+                    node.innerHTML = `<span style='width: 34px'>${i+1}.º</span>
+                                    <span style='width: 190px'>${arrPlayer[i].name}</span>
+                                    <span style='width: 32px'>${arrPlayer[i].scrt}</span>
+                                    <span style='width: 24px'>${arrPlayer[i].hdTotal}</span>
+                                    <span style='width: 32px'>${arrPlayer[i].serie}</span>
+                                    <span style='width: 43px'>${arrPlayer[i].promedio}</span>`
+                }else {
+                    node.innerHTML = `<span style='max-width: 34px'>${i+1}.º</span>
+                                    <span style='max-width: 190px'>${arrPlayer[i].name}</span>
+                                    <span style='min-width: 32px'>Scrt: ${arrPlayer[i].scrt}</span>
+                                    <span style='min-width: 55px'>HD: ${arrPlayer[i].hdTotal}</span>
+                                    <span style='min-width: 32px'>Serie: ${arrPlayer[i].serie}</span>
+                                    <span style='min-width: 43px'>Prom: ${arrPlayer[i].promedio}</span>`
+                }
                 
                 if(i === 0) node.style.backgroundColor = 'gold'
 
@@ -140,12 +153,6 @@ export default function rank(button_calculate) {
             }
 
             $rankWrapper.appendChild($fragment)
-
-            e.target.disabled = true
-
-            //deshabilitar boton Establecer Rank -H
-            const $buttonCalculateWithout = d.querySelector('.button_calculate-withoutH')
-            $buttonCalculateWithout.disabled = true
 
             //deshabilitar button_cut
             const $buttonCut = d.querySelector('.button_cut')

@@ -4,5 +4,5 @@ export default function soundEntry(sound, btnAudio){
     const strike = d.createElement('audio')
     strike.src = sound
     
-    //strike.play()
+    strike.play()
 }

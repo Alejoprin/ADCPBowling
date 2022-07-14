@@ -1,6 +1,7 @@
 const d = document
+const w = window
 
-export default function matchCutWithoutH(button_calculate){
+export default function matchCutWithoutH(button_calculate, mq){
     
     d.addEventListener('click', e => {
         const $rankWrapper = d.querySelector('.rank_wrapper')
@@ -17,14 +18,15 @@ export default function matchCutWithoutH(button_calculate){
             const $fragment = d.createDocumentFragment()
             const $template = d.querySelector('.template_rank-titles').content
             let scrt = 0
-            let hdTotal = 0
-            let serie = 0
             let promedio = 0
 
             const arrPlayer = []
             const arrLinesPerPlayer = new Array(parseInt($inputNumberLines))
             const arrLinesTotal = new Array(parseInt($inputNumberPlayers))
             let aux = 0
+
+            //establecer el breakpoint para el cambio de posición de los titulos en el rank
+            let breakpoint = w.matchMedia(mq)
 
             //Coloca cada linea en el array arrLinesPerPlayer
             for (let i = 0; i < $inputNumberPlayers; i++) {    
@@ -119,10 +121,19 @@ export default function matchCutWithoutH(button_calculate){
                 nodeLines.appendChild($fragment2)
 
                 //Dibujando cada jugador con todos sus datos de juego
-                node.innerHTML = `<span style='width: 34px'>${i+1}.º</span>
-                                <span style='width: 190px'>${arrPlayer[i].name}</span>
-                                <span style='width: 32px'>${arrPlayer[i].scrt}</span>
-                                <span style='width: 43px'>${arrPlayer[i].promedio}</span>`
+                if(!breakpoint.matches){
+                    node.innerHTML = `<span style='width: 34px'>${i+1}.º</span>
+                                    <span style='width: 190px'>${arrPlayer[i].name}</span>
+                                    <span style='width: 32px'>${arrPlayer[i].scrt}</span>
+                                    <span style='width: 43px'>${arrPlayer[i].promedio}</span>`
+                }else {
+                    node.innerHTML = `<span style='max-width: 34px'>${i+1}.º</span>
+                                    <span style='max-width: 190px'>${arrPlayer[i].name}</span>
+                                    <span style='min-width: 28px'>Scrt: <br> ${arrPlayer[i].scrt}</span>
+                                    <span style='min-width: 43px'>Prom: ${arrPlayer[i].promedio}</span>`
+                }
+
+                node.style.gridTemplateRows = 'repeat(2, 1fr)'
                 
                 if(i === 0) node.style.backgroundColor = 'gold'
 
