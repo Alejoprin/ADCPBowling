@@ -3,12 +3,10 @@
 Bowling tournaments manager, where you will be able to obtain a ranking of players through the calculation of the lines played.
 
 ## Problem to solve 
----
 My father and his team sometimes organize bowling tournaments, the evolution of the game is carried out manually (paper and pencil), noting in a table the score of each player to then perform the calculations and define the ranking, of course, this task is time consuming when conducting tournaments of many players, in addition to the probability of making mistakes when scoring or calculating, inherent to human behavior. 
 
 
 ## Technologies used
----
 <p align="center">
   <table>
     <tr>
@@ -27,7 +25,6 @@ My father and his team sometimes organize bowling tournaments, the evolution of 
 </p>
 
 ## Requirements
----
 Smartphone or computer with a web browser and internet installed
 
 # Functionality
